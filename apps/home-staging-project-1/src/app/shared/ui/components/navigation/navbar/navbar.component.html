@@ -14,15 +14,23 @@
       </a>
     </nav>
 
-    <img src="assets/images/logo/logo2.svg" alt="Logo" class="h-12 dark:invert" />
+    <img
+      src="assets/images/logo/logo2.svg"
+      alt="Logo"
+      class="h-12 dark:invert"
+    />
     <nav class="hidden sm:flex items-center gap-4 justify-end">
+      <div class="cursor-pointer" matTooltip="Darktheme vs Lighttheme" [matMenuTriggerFor]="darkModeMenu">
+        <fa-icon size="lg" [icon]="toggleDarkModeIcon()"></fa-icon>
+      </div>
       <div
         [matBadge]="basket().length"
         matBadgeSize="small"
         [matBadgeHidden]="basket().length === 0"
         matBadgeColor="warn"
         [matMenuTriggerFor]="menu"
-        class="cursor-pointer"
+        matTooltip="Einkaufswagen"
+        class="cursor-pointer mr-2"
       >
         <fa-icon size="lg" [icon]="basketIcon()"></fa-icon>
       </div>
@@ -31,6 +39,21 @@
     </nav>
   </div>
 </header>
+<mat-menu #darkModeMenu="matMenu" xPosition="before">
+  <button mat-menu-item (click)="setTheme('dark')">
+    <fa-icon class="mr-2" [icon]="darkModeIcon()"></fa-icon>
+    <span>Dark</span>
+  </button>
+  <button mat-menu-item (click)="setTheme('light')">
+    <fa-icon class="mr-2" [icon]="lightModeIcon()"></fa-icon>
+    <span>Light</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="setThemeToSystemPreference()">
+    <fa-icon class="mr-2" [icon]="systemSettingsIcon()"></fa-icon>
+    <span>System</span>
+  </button>
+</mat-menu>
 <mat-menu #menu="matMenu" xPosition="before" class="no-max-width">
   <div class="text-stone-700" (click)="$event.stopPropagation()">
     <button (click)="emptyBasket()" mat-menu-item color="warn">
