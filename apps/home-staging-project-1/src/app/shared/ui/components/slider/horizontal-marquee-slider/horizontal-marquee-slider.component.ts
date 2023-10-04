@@ -185,14 +185,18 @@ export class HorizontalMarqueeSliderComponent implements AfterViewInit {
         '--max-width',
         this.sliderOptions().maxWidth
       );
-      const { width } = this.scrollerRef.nativeElement.getBoundingClientRect();
 
       const contentChildren = Array.from(
         this.scrollerInnerRef.nativeElement.children
       ) as HTMLElement[];
 
-      contentChildren.forEach((child: HTMLElement) => {
+      contentChildren.forEach((child: HTMLElement, index: number) => {
         // child.style.width = `${width / this.sliderOptions().visibleItems}px`;
+        if (this.sliderItems()[index].type === 'video') {
+          const video = child.querySelector('video') as HTMLVideoElement;
+          video.muted = true;
+          video.autoplay = true;
+        }
         const duplicatedChild = child.cloneNode(true) as HTMLElement;
 
         duplicatedChild.setAttribute('aria-hidden', 'true');
