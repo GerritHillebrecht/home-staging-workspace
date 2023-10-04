@@ -1,4 +1,6 @@
-<header class="flex items-center h-14 sm:h-24 px-4 sm:px-10">
+<header
+  class="flex items-center h-14 sm:h-24 px-4 sm:px-10 sticky top-0 bg-white/80 dark:bg-stone-900/80 backdrop-blur backdrop-saturate-200 z-50 border-b border-white dark:border-stone-900"
+>
   <div class="grid items-center grid-cols-[1fr,_max-content,_1fr] gap-4 w-full">
     <nav class="sm:flex items-center hidden">
       <a
@@ -12,7 +14,7 @@
       </a>
     </nav>
 
-    <img src="assets/images/logo/logo2.svg" alt="Logo" class="h-12" />
+    <img src="assets/images/logo/logo2.svg" alt="Logo" class="h-12 dark:invert" />
     <nav class="hidden sm:flex items-center gap-4 justify-end">
       <div
         [matBadge]="basket().length"
@@ -30,7 +32,7 @@
   </div>
 </header>
 <mat-menu #menu="matMenu" xPosition="before" class="no-max-width">
-  <div (click)="$event.stopPropagation()">
+  <div class="text-stone-700" (click)="$event.stopPropagation()">
     <button (click)="emptyBasket()" mat-menu-item color="warn">
       Einkaufswagen leeren
     </button>

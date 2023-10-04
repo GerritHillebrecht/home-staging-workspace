@@ -60,7 +60,7 @@ export class HorizontalMarqueeSliderComponent implements AfterViewInit {
       type: 'image',
     },
     {
-      path: 'assets/video/stock_1.mp4',
+      path: 'assets/video/compressed/stock_1.mp4',
       title: 'Joseph Jorgensen',
       subtitle: 'CEO of everything',
       tags: ['CEO', 'Founder'],
@@ -74,7 +74,7 @@ export class HorizontalMarqueeSliderComponent implements AfterViewInit {
       type: 'image',
     },
     {
-      path: 'assets/video/stock_2.mp4',
+      path: 'assets/video/compressed/stock_2.mp4',
       title: 'Joseph Jorgensen',
       subtitle: 'CEO of everything',
       tags: ['CEO', 'Founder'],
@@ -95,7 +95,7 @@ export class HorizontalMarqueeSliderComponent implements AfterViewInit {
       type: 'image',
     },
     {
-      path: 'assets/video/stock_3.mp4',
+      path: 'assets/video/compressed/stock_3.mp4',
       title: 'Joseph Jorgensen',
       subtitle: 'CEO of everything',
       tags: ['CEO', 'Founder'],
@@ -109,7 +109,7 @@ export class HorizontalMarqueeSliderComponent implements AfterViewInit {
       type: 'image',
     },
     {
-      path: 'assets/video/stock_5.mp4',
+      path: 'assets/video/compressed/stock_5.mp4',
       title: 'Joseph Jorgensen',
       subtitle: 'CEO of everything',
       tags: ['CEO', 'Founder'],
@@ -123,7 +123,7 @@ export class HorizontalMarqueeSliderComponent implements AfterViewInit {
       type: 'image',
     },
     {
-      path: 'assets/video/stock_4.mp4',
+      path: 'assets/video/compressed/stock_4.mp4',
       title: 'Joseph Jorgensen',
       subtitle: 'CEO of everything',
       tags: ['CEO', 'Founder'],
@@ -144,7 +144,7 @@ export class HorizontalMarqueeSliderComponent implements AfterViewInit {
       type: 'image',
     },
     {
-      path: 'assets/video/stock_6.mp4',
+      path: 'assets/video/compressed/stock_6.mp4',
       title: 'Joseph Jorgensen',
       subtitle: 'CEO of everything',
       tags: ['CEO', 'Founder'],

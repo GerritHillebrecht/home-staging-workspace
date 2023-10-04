@@ -9,7 +9,7 @@
     <div #scrollerInner class="tag-list scroller__inner">
       <div
         *ngFor="let item of sliderItems(); let index = index"
-        class="slider-item group text-stone-50 overflow-hidden h-[340px] aspect-[0.8] border rounded-3xl relative w-full flex flex-col justify-between px-6 py-4 hover:saturate-[1.2] transition-[filter,transform] duration-300 hover:scale-105"
+        class="slider-item group text-stone-50 overflow-hidden h-[340px] aspect-[0.8] rounded-3xl relative w-full flex flex-col justify-between px-6 py-4 hover:saturate-[1.2] transition-[filter,transform] duration-300 hover:scale-105"
       >
         <video
           *ngIf="item.type === 'video'"
