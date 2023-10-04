@@ -1,5 +1,9 @@
 .navbar-item {
-  @apply text-sm leading-none font-medium px-4;
+  @apply text-sm leading-none font-medium px-4 py-3;
+
+  &.active {
+    @apply border-b-2 border-stone-950 
+  }
 }
 ::ng-deep {
   .mat-mdc-menu-panel {

@@ -37,7 +37,6 @@ export class NavbarComponent {
   private readonly basketService = inject(BasketService);
 
   protected readonly basket = this.basketService.basket;
-  protected readonly basketCount = signal<number>(1);
 
   protected readonly basketIcon = signal<IconDefinition>(faBagShopping);
   protected readonly arrowIcon = signal<IconDefinition>(faChevronRight);
@@ -48,11 +47,9 @@ export class NavbarComponent {
     { label: 'Store', path: '/store' },
     { label: 'Inspiration', path: '/inspiration' },
     { label: 'Learn Design', path: '/design' },
-    { label: 'Jobs', path: '/jobs' },
-    { label: 'Go Pro', path: '/pro' },
   ]);
 
-  emptyBasket(): void {
+  protected emptyBasket(): void {
     this.basketService.emptyBasket();
   }
 }
