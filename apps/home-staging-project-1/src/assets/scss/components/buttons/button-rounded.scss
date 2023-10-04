@@ -1,0 +1,7 @@
+.btn-rounded {
+  @apply border-stone-900 border rounded-3xl bg-stone-900 text-stone-50 px-6 h-12 inline-flex items-center font-semibold text-sm leading-none hover:bg-stone-900/70 hover:border-stone-900/70 transition-[background-color,border] duration-300 ease-in-out;
+
+  &.secondary {
+    @apply bg-transparent text-stone-900;
+  }
+}

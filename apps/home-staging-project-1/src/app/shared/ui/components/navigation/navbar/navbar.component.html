@@ -1,0 +1,83 @@
+<header class="flex items-center h-14 sm:h-24 px-4 sm:px-10">
+  <div class="grid items-center grid-cols-[1fr,_max-content,_1fr] gap-4 w-full">
+    <nav class="sm:flex items-center hidden">
+      <a
+        [routerLink]="route.path"
+        class="navbar-item"
+        *ngFor="let route of routes()"
+      >
+        {{ route.label }}
+      </a>
+    </nav>
+
+    <img src="assets/images/logo/logo2.svg" alt="Logo" class="h-12" />
+    <nav class="hidden sm:flex items-center gap-4 justify-end">
+      <div
+        [matBadge]="basket().length"
+        matBadgeSize="small"
+        [matBadgeHidden]="basket().length === 0"
+        matBadgeColor="warn"
+        [matMenuTriggerFor]="menu"
+        class="cursor-pointer"
+      >
+        <fa-icon size="lg" [icon]="basketIcon()"></fa-icon>
+      </div>
+      <a href="#">Log in</a>
+      <a href="#" class="btn-rounded">Sign Up</a>
+    </nav>
+  </div>
+</header>
+<mat-menu #menu="matMenu" xPosition="before" class="no-max-width">
+  <div (click)="$event.stopPropagation()">
+    <button (click)="emptyBasket()" mat-menu-item color="warn">
+      Einkaufswagen leeren
+    </button>
+    <div
+      *ngFor="let item of basket()"
+      class="basket-item px-4 py-3 border-b first-of-type:border-t hover:bg-stone-100 grid grid-cols-[max-content,1fr] gap-3"
+    >
+      <div class="avatar">
+        <figure>
+          <picture>
+            <img
+              class="w-16 aspect-square object-cover rounded-xl"
+              [src]="item.imageUrl"
+              alt=""
+            />
+          </picture>
+        </figure>
+      </div>
+      <div class="content">
+        <p class="leading-tight text-sm font-semibold">{{ item.title }}</p>
+        <p class="text-xs italic">{{ item.category }}</p>
+        <p class="text-xs line-clamp-2 mt-2 mb-3">{{ item.description }}</p>
+        <div class="btn-group inline-grid grid-cols-3">
+          <button
+            class="first:rounded-l-xl last:rounded-r-xl border px-3 py-1 text-sm bg-stone-50 hover:bg-stone-200"
+          >
+            -
+          </button>
+          <div
+            class="border inline-flex px-3 py-1 text-xs items-center bg-stone-50"
+          >
+            {{ item.quantity }}
+          </div>
+          <button
+            class="first:rounded-l-xl last:rounded-r-xl border px-3 py-1 text-sm bg-stone-50 hover:bg-stone-200"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex justify-between items-center relative w-full h-full py-4 hover:bg-stone-50 -mb-2 px-4 cursor-pointer"
+    >
+      <div class="flex items-center gap-2">
+        <fa-icon [icon]="checkOutIcon()"></fa-icon>
+        <p class="leading-none">Zum Checkout</p>
+      </div>
+      <fa-icon [icon]="arrowIcon()"></fa-icon>
+    </div>
+  </div>
+</mat-menu>

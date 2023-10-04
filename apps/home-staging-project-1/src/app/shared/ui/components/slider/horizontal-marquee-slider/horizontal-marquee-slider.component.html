@@ -1,0 +1,54 @@
+<div
+  #scroller
+  class="scroller mx-auto"
+  [attr.data-speed]="sliderOptions().speed"
+  [attr.data-direction]="sliderOptions().direction"
+  [attr.data-masked]="sliderOptions().masked"
+>
+  <div class="wrapper">
+    <div #scrollerInner class="tag-list scroller__inner">
+      <div
+        *ngFor="let item of sliderItems(); let index = index"
+        class="slider-item group text-stone-50 overflow-hidden h-[340px] aspect-[0.8] border rounded-3xl relative w-full flex flex-col justify-between px-6 py-4 hover:saturate-[1.2] transition-[filter,transform] duration-300 hover:scale-105"
+      >
+        <video
+          *ngIf="item.type === 'video'"
+          [src]="item.path"
+          loop
+          autoplay
+          muted
+          class="absolute w-full h-full inset-0 object-cover"
+        ></video>
+        <figure
+          *ngIf="item.type === 'image'"
+          class="absolute inset-0 w-full h-full"
+        >
+          <picture>
+            <img
+              [src]="item.path"
+              class="absolute inset-0 w-full h-full block object-cover"
+              alt=""
+            />
+          </picture>
+        </figure>
+        <div class="flex justify-end relative z-10">
+          <div class="hidden group-hover:block cursor-pointer" (click)="addToBasket.emit()">
+            <fa-icon [icon]="addToBasketIcon()"></fa-icon>
+          </div>
+        </div>
+        <div class="content relative z-10">
+          <p class="font-bold">{{ item.title }}</p>
+          <p class="text-xs">{{ item.subtitle }}</p>
+          <div class="tags flex gap-2 mt-2 items-center">
+            <div
+              class="tag text-[10px] px-2 py-1 border border-stone-50/20 rounded-3xl"
+              *ngFor="let tag of item.tags"
+            >
+              {{ tag }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

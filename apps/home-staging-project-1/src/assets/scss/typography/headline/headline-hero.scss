@@ -1,0 +1,10 @@
+.headline-hero {
+  @apply text-5xl sm:text-7xl leading-none tracking-[-0.5px];
+  font-feature-settings: 'ss01';
+  font-family: 'Source Serif 4', serif;
+}
+
+.headline-hero-secondary {
+  @apply text-5xl leading-[56px];
+  -webkit-font-smoothing: subpixel-antialiased;
+}

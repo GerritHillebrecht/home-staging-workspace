@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "home-staging-workspace",
+            "prefix": "hsp-1",
             "style": "kebab-case"
           }
         ]

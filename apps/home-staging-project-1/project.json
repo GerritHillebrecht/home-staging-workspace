@@ -2,7 +2,7 @@
   "name": "home-staging-project-1",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "home-staging-workspace",
+  "prefix": "hsp-1",
   "sourceRoot": "apps/home-staging-project-1/src",
   "tags": [],
   "targets": {
@@ -19,7 +19,10 @@
           "apps/home-staging-project-1/src/favicon.ico",
           "apps/home-staging-project-1/src/assets"
         ],
-        "styles": ["apps/home-staging-project-1/src/styles.scss"],
+        "styles": [
+          "apps/home-staging-project-1/src/styles.scss",
+          "@angular/material/prebuilt-themes/indigo-pink.css"
+        ],
         "scripts": []
       },
       "configurations": {

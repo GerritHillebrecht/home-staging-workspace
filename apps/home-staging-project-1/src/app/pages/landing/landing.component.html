@@ -1,0 +1,75 @@
+<section class="py-20">
+  <div class="mx-auto max-w-[1200px] w-full text-center px-4 sm:px-0">
+    <div class="flex justify-center">
+      <div class="colored-headline animate">
+        Over 3 million ready-to-work creatives in our community!
+      </div>
+    </div>
+    <h1 class="headline-hero my-10 mx-auto max-w-[760px]">
+      Hire the world’s top creative talent.
+    </h1>
+    <p class="text-xl mb-10">
+      Connect with a community of millions of top-rated designers & agencies
+      around the world.
+    </p>
+    <button (click)="addItemToBasket()" class="btn-rounded mx-auto">
+      Start hiring today
+    </button>
+  </div>
+
+  <div class="my-20">
+    <hsp-1-horizontal-marquee-slider
+      (addToBasket)="addItemToBasket()"
+      [options]="{ speed: 'slow', maxWidth: 'none', masked: false }"
+    ></hsp-1-horizontal-marquee-slider>
+  </div>
+
+  <div class="max-w-[1200px] mx-auto">
+    <hsp-1-splitted-content>
+      <blockquote class="hero-quote" left>
+        When only the best talent will do
+      </blockquote>
+      <figure right>
+        <picture>
+          <img
+            src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHBvcnRyYWl0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+            alt=""
+          />
+        </picture>
+      </figure>
+    </hsp-1-splitted-content>
+    <div class="my-20">
+      <mat-divider></mat-divider>
+    </div>
+    <div class="text-center flex items-center flex-col gap-8">
+      <p class="colored-headline animated">
+        Trusted by top brands & businessess
+      </p>
+      <h2 class="headline-hero max-w-3xl">
+        Connecting brands and business builders with the world’s top designers
+      </h2>
+      <p>
+        The world’s leading brands use Dribbble to hire creative talent. Browse
+        millions of top-rated portfolios to find your perfect creative match.
+      </p>
+    </div>
+
+    <hsp-1-splitted-content>
+      <div class="mt-20" left>
+        <h3 class="headline-hero-secondary">
+          Find your perfect creative match
+        </h3>
+        <p class="mt-4 mb-6">
+          As the world's largest and most far-reaching network of exceptional
+          creative professionals, we are fully equipped to handle your most
+          critical projects with ease.
+        </p>
+        <button class="btn-rounded mr-2">Find a designer</button>
+        <button class="btn-rounded secondary">Find a designer</button>
+      </div>
+      <div right class="flex justify-center">
+        <hsp-1-hero-avatar></hsp-1-hero-avatar>
+      </div>
+    </hsp-1-splitted-content>
+  </div>
+</section>

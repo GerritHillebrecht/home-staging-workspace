@@ -1,0 +1,11 @@
+.navbar-item {
+  @apply text-sm leading-none font-medium px-4;
+}
+::ng-deep {
+  .mat-mdc-menu-panel {
+    &.no-max-width {
+      max-width: 400px;
+      max-height: 80vh;
+    }
+  }
+}
