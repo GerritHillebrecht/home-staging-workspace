@@ -1,8 +1,12 @@
 <nav #nav>
-  <div #slider class="slider"></div>
+  <div #slider class="slider" [ngClass]="{ 'color-animation': animate }"></div>
   <ul>
     <li #navLink *ngFor="let route of routes">
-      <a [routerLink]="route.path" routerLinkActive="active-route">
+      <a
+        [routerLink]="route.path"
+        routerLinkActive="active-route"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <img
           class="icon"
           *ngIf="route.icon.image"
@@ -17,7 +21,7 @@
         <mat-icon class="icon" *ngIf="route.icon.mui">{{
           route.icon.mui
         }}</mat-icon>
-        <span>{{ route.label }}</span>
+        <span class="whitespace-nowrap">{{ route.label }}</span>
       </a>
     </li>
   </ul>

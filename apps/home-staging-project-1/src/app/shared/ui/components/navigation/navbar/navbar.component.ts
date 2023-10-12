@@ -13,7 +13,12 @@ import {
   faChevronRight,
   faCircleHalfStroke,
   faCreditCard,
+  faGraduationCap,
+  faLightbulb,
   faMoon,
+  faPenNib,
+  faRuler,
+  faStore,
   faSun,
 } from '@fortawesome/free-solid-svg-icons';
 import { BasketService } from 'apps/home-staging-project-1/src/app/core/service/state';
@@ -52,19 +57,49 @@ interface Route {
 })
 export class NavbarComponent {
   private readonly basketService = inject(BasketService);
+  protected readonly basket = this.basketService.basket;
   private readonly themeService = inject(ThemeService);
 
-  protected readonly basket = this.basketService.basket;
+  protected readonly icons = signal<{ [key: string]: IconDefinition }>({
+    basket: faBagShopping,
+    arrow: faChevronRight,
+    checkOut: faCreditCard,
+    toggleDarkMode: faCircleHalfStroke,
+    darkMode: faMoon,
+    lightMode: faSun,
+    systemSettings: faBarsProgress,
+  });
 
-  protected readonly basketIcon = signal<IconDefinition>(faBagShopping);
-  protected readonly arrowIcon = signal<IconDefinition>(faChevronRight);
-  protected readonly checkOutIcon = signal<IconDefinition>(faCreditCard);
-  protected readonly toggleDarkModeIcon =
-    signal<IconDefinition>(faCircleHalfStroke);
-  protected readonly darkModeIcon = signal<IconDefinition>(faMoon);
-  protected readonly lightModeIcon = signal<IconDefinition>(faSun);
-  protected readonly systemSettingsIcon =
-    signal<IconDefinition>(faBarsProgress);
+  protected readonly navLinks = signal<NavLink[]>([
+    {
+      label: 'Home',
+      path: '',
+      icon: {
+        fontAwesome: faPenNib,
+      },
+    },
+    {
+      label: 'Store',
+      path: '/store',
+      icon: {
+        fontAwesome: faStore,
+      },
+    },
+    {
+      label: 'Inspiration',
+      path: '/inspiration',
+      icon: {
+        fontAwesome: faLightbulb,
+      },
+    },
+    // {
+    //   label: 'Learn Design',
+    //   path: '/design',
+    //   icon: {
+    //     fontAwesome: faGraduationCap
+    //   },
+    // },
+  ]);
 
   protected readonly routes = signal<Route[]>([
     { label: 'Find Talent', path: '' },

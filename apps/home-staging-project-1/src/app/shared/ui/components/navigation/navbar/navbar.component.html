@@ -2,7 +2,13 @@
   class="flex items-center h-14 sm:h-24 px-4 sm:px-10 sticky top-0 bg-white/80 dark:bg-stone-900/80 backdrop-blur backdrop-saturate-200 z-50 border-b border-white dark:border-stone-900"
 >
   <div class="grid items-center grid-cols-[1fr,_max-content,_1fr] gap-4 w-full">
-    <nav class="sm:flex items-center hidden">
+    <div class="flex">
+      <shared-ui-rounded-overlay
+        [routes]="navLinks()"
+        [fontColor]="'inherit'"
+      ></shared-ui-rounded-overlay>
+    </div>
+    <!-- <nav class="sm:flex items-center hidden">
       <a
         [routerLink]="route.path"
         routerLinkActive="active"
@@ -12,7 +18,7 @@
       >
         {{ route.label }}
       </a>
-    </nav>
+    </nav> -->
 
     <img
       src="assets/images/logo/logo2.svg"
@@ -20,8 +26,12 @@
       class="h-12 dark:invert"
     />
     <nav class="hidden sm:flex items-center gap-4 justify-end">
-      <div class="cursor-pointer" matTooltip="Darktheme vs Lighttheme" [matMenuTriggerFor]="darkModeMenu">
-        <fa-icon size="lg" [icon]="toggleDarkModeIcon()"></fa-icon>
+      <div
+        class="cursor-pointer"
+        matTooltip="Darktheme vs Lighttheme"
+        [matMenuTriggerFor]="darkModeMenu"
+      >
+        <fa-icon size="lg" [icon]="icons()['toggleDarkMode']"></fa-icon>
       </div>
       <div
         [matBadge]="basket().length"
@@ -32,7 +42,7 @@
         matTooltip="Einkaufswagen"
         class="cursor-pointer mr-2"
       >
-        <fa-icon size="lg" [icon]="basketIcon()"></fa-icon>
+        <fa-icon size="lg" [icon]="icons()['basket']"></fa-icon>
       </div>
       <a href="#">Log in</a>
       <a href="#" class="btn-rounded">Sign Up</a>
@@ -41,16 +51,16 @@
 </header>
 <mat-menu #darkModeMenu="matMenu" xPosition="before">
   <button mat-menu-item (click)="setTheme('dark')">
-    <fa-icon class="mr-2" [icon]="darkModeIcon()"></fa-icon>
+    <fa-icon class="mr-2" [icon]="icons()['darkMode']"></fa-icon>
     <span>Dark</span>
   </button>
   <button mat-menu-item (click)="setTheme('light')">
-    <fa-icon class="mr-2" [icon]="lightModeIcon()"></fa-icon>
+    <fa-icon class="mr-2" [icon]="icons()['lightMode']"></fa-icon>
     <span>Light</span>
   </button>
   <mat-divider></mat-divider>
   <button mat-menu-item (click)="setThemeToSystemPreference()">
-    <fa-icon class="mr-2" [icon]="systemSettingsIcon()"></fa-icon>
+    <fa-icon class="mr-2" [icon]="icons()['systemSettings']"></fa-icon>
     <span>System</span>
   </button>
 </mat-menu>
@@ -101,10 +111,10 @@
       class="flex justify-between items-center sticky bottom-0 bg-stone-50 z-10 w-full h-full py-4 hover:bg-stone-50 -mb-2 px-4 cursor-pointer"
     >
       <div class="flex items-center gap-2">
-        <fa-icon [icon]="checkOutIcon()"></fa-icon>
+        <fa-icon [icon]="icons()['checkOut']"></fa-icon>
         <p class="leading-none">Zum Checkout</p>
       </div>
-      <fa-icon [icon]="arrowIcon()"></fa-icon>
+      <fa-icon [icon]="icons()['arrow']"></fa-icon>
     </div>
   </div>
 </mat-menu>

@@ -53,6 +53,9 @@ export class NavbarRoundedOverlayComponent implements AfterViewInit {
   }
 
   @Input()
+  animate = true;
+
+  @Input()
   routes: NavLink[] = [
     {
       label: 'Security',
@@ -88,10 +91,12 @@ export class NavbarRoundedOverlayComponent implements AfterViewInit {
     this.navLinks?.forEach((link) => {
       link.nativeElement.addEventListener('mouseenter', () => {
         if (this.slider && this.nav) {
-          const { x: linkX } = link.nativeElement.getBoundingClientRect();
+          const { x: linkX, width } =
+            link.nativeElement.getBoundingClientRect();
           const { x: navX } = this.nav.nativeElement.getBoundingClientRect();
 
           this.slider.nativeElement.style.translate = `${linkX - navX}px 0`;
+          this.slider.nativeElement.style.width = `${width}px`;
         }
       });
     });

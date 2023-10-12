@@ -1,7 +1,7 @@
 nav {
-  --clr-font: rgb(236 72 153);
+  --clr-font: #fff;
   --clr-hightlight: #fdc616;
-  --item-width: 8rem;
+  --item-width: 7rem;
   //   --clr-hightlight: rgb(226, 223, 254);
 
   display: flex;
@@ -31,6 +31,10 @@ nav {
     opacity: 0;
     transition: opacity 250ms ease;
     z-index: 1;
+
+    &.color-animation {
+      animation: color-rotate 32s linear infinite;
+    }
   }
 
   ul {
@@ -40,7 +44,7 @@ nav {
     padding: 0;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    // gap: 1rem;
 
     li {
       list-style: none;
@@ -59,24 +63,25 @@ nav {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        font-size: 0.8rem;
-        letter-spacing: 0.1em;
+        font-size: 0.875rem;
         color: var(--clr-font);
-        color: #fff;
         cursor: pointer;
         padding: 0.8rem 2rem;
         border-radius: 3rem;
         width: var(--item-width);
         transition: 350ms all ease-in-out;
-        font-weight: 900;
-        // font-family: Thunder;
+        font-weight: 500;
         line-height: 1rem;
         vertical-align: middle;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-transform: uppercase;
+        // letter-spacing: 0.1em;
+        // color: #fff;
+        // font-weight: 900;
+        // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        // text-transform: uppercase;
 
         &:hover {
           color: var(--clr-font);
+          color: rgb(28, 25, 23);
 
           img {
             filter: invert(41%) sepia(58%) saturate(2772%) hue-rotate(305deg)
@@ -86,11 +91,16 @@ nav {
         }
 
         &.active-route {
-          .icon {
-            scale: 1;
-            margin: -1px 0.5rem 0 0;
-            color: var(--clr-font) !important;
+          &:not(:hover) {
+            &:first-letter {
+              color: red;
+            }
           }
+          // .icon {
+          //   scale: 1;
+          //   margin: -1px 0.5rem 0 0;
+          //   color: var(--clr-font) !important;
+          // }
         }
 
         img {
@@ -107,9 +117,31 @@ nav {
           position: relative;
 
           transform-origin: -0.4rem 50%;
-          transition: all 350ms ease-in-out;
+          // transition: all 350ms ease-in-out;
+          transition-property: margin, scale;
+          transition-duration: 350ms;
+          transition-timing-function: ease-in-out;
         }
       }
     }
+  }
+}
+
+@keyframes color-rotate {
+  0% {
+    background-color: #ffda79;
+  }
+
+  25% {
+    background-color: #ffabe7;
+  }
+  50% {
+    background-color: #d2bcf3;
+  }
+  75% {
+    background-color: #edf3d8;
+  }
+  100% {
+    background-color: #ffda79;
   }
 }
